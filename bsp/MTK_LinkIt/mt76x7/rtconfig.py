@@ -55,8 +55,11 @@ if PLATFORM == 'gcc':
     CFLAGS += ' -DMTK_FLASH_DIRECT_DL -DMTK_PATCH_DL_ENABLE -DMTK_DEBUG_LEVEL_NONE -DMTK_LWIP_ENABLE'
     CFLAGS += ' -DUSE_HAL_DRIVER -DDATA_PATH_87 -DMTK_EXTERNAL_FLASH_ENABLE -DUSE_HAL_DRIVER '                
 
-    AFLAGS = ' -c' + DEVICE + ' -x assembler-with-cpp -Wa,-mimplicit-it=thumb '
-    LFLAGS = DEVICE + ' -lm -lgcc -lc' + ' -nostartfiles -Wl,--gc-sections,-Map=rtthread-rt7697.map,-cref,-u,-T mt7687_flash.ld'
+#    AFLAGS = ' -c' + DEVICE + ' -x assembler-with-cpp -Wa,-mimplicit-it=thumb '
+    AFLAGS = ' -c' + CFLAGS + ' -x assembler-with-cpp -Wa,-mimplicit-it=thumb ' 
+    LFLAGS = DEVICE + ' -lnosys -lm -lgcc -lc ' + ' -nostartfiles -Wl,-T./mt7687_flash.ld -Wl,--gc-sections -u build_date_time_str -u sw_verno_str -u hw_verno_str -Wl,-Map=rtthread-rt7697.map '
+
+#    '-Wl,--gc-sections,-Map=rtthread-rt7697.map,-cref,-u,-Tmt7687_flash.ld'
 
     CPATH = ''
     LPATH = ''
