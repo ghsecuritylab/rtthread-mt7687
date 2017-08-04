@@ -20,7 +20,7 @@
 #define RT_USING_OVERFLOW_CHECK
 
 /* Using Hook */
-#define RT_USING_HOOK
+//#define RT_USING_HOOK
 
 #define IDLE_THREAD_STACK_SIZE     1024
 
@@ -78,7 +78,7 @@
 #define RT_CONSOLEBUF_SIZE	128
 
 /* SECTION: finsh, a C-Express shell */
-#define RT_USING_FINSH
+/* #define RT_USING_FINSH */
 /* Using symbol table */
 #define FINSH_USING_SYMTAB
 #define FINSH_USING_DESCRIPTION

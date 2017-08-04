@@ -57,7 +57,7 @@ if PLATFORM == 'gcc':
 
 #    AFLAGS = ' -c' + DEVICE + ' -x assembler-with-cpp -Wa,-mimplicit-it=thumb '
     AFLAGS = ' -c' + CFLAGS + ' -x assembler-with-cpp -Wa,-mimplicit-it=thumb ' 
-    LFLAGS = DEVICE + ' -lnosys -lm -lgcc -lc ' + ' -nostartfiles -Wl,-T./mt7687_flash.ld -Wl,--gc-sections -u build_date_time_str -u sw_verno_str -u hw_verno_str -Wl,-Map=rtthread-rt7697.map '
+    LFLAGS = DEVICE + ' -lnosys -lm -lgcc -lc ' + ' --specs=nano.specs -nostartfiles -Wl,-T./mt7687_flash.ld -Wl,--gc-sections -u build_date_time_str -u sw_verno_str -u hw_verno_str -Wl,-Map=rtthread-rt7697.map'
 
 #    '-Wl,--gc-sections,-Map=rtthread-rt7697.map,-cref,-u,-Tmt7687_flash.ld'
 
